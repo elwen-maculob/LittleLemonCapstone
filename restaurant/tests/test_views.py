@@ -2,8 +2,8 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIClient
-from LittleLemonAPI.models import Category, MenuItem
-from LittleLemonAPI.serializers import MenuItemSerializer
+from restaurant.models import Category, MenuItem
+from restaurant.serializers import MenuItemSerializer
 
 User = get_user_model()
 

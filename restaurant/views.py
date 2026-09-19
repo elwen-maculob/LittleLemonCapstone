@@ -10,7 +10,7 @@ from django.views.generic import TemplateView, ListView, CreateView
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-from LittleLemonAPI.models import MenuItem
+from restaurant.models import MenuItem
 from django.views import View
 from django.shortcuts import render, get_object_or_404, redirect
 
