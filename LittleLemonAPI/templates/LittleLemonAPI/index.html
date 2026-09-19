@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Lemon Restaurant</title>
+    <style>
+        body {
+            font-family: Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        /* Navigation Header */
+        header {
+            background-color: #2c4a3e;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid #f4d06f;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #f4d06f;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #f4d06f;
+        }
+
+        /* Hero Banner Section */
+        .hero {
+            background-color: #2c4a3e;
+            color: #ffffff;
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 6px solid #f4d06f;
+        }
+
+        .hero h1 {
+            color: #f4d06f;
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #d1ded5;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+        }
+
+        /* Main Content Container */
+        .content {
+            width: 100%;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #f4f6f4;
+            border-radius: 8px;
+            border: 1px solid #d1ded5;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            color: #2c4a3e;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        /* Form Layout */
+        .form-row {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #2c4a3e;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+
+        .btn-submit {
+            background-color: #2c4a3e;
+            color: #f4d06f;
+            padding: 12px 20px;
+            border: none;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: #3b5d50;
+        }
+
+        /* Success Message Banner */
+        .success-banner {
+            background-color: #d1ded5;
+            color: #2c4a3e;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c4a3e;
+            color: #ffffff;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header and Navigation -->
+    <header>
+        <div class="logo">🍋 Little Lemon</div>
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'menu-items' %}">Menu</a>
+            <a href="{% url 'cart' %}">Cart</a>
+            <a href="{% url 'index' %}#reservations">Bookings</a>
+            {% if user.is_authenticated %}
+                <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer; font: inherit; padding: 0;">Logout</button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a> | <a href="{% url 'signup' %}">Sign Up</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <!-- Home Hero Banner -->
+    <section class="hero">
+        <h1>Welcome to Little Lemon</h1>
+        <p>Your neighborhood Mediterranean sanctuary for authentic, vibrant, and fresh flavors crafted daily.</p>
+    </section>
+
+    <!-- Main Booking Section Container -->
+    <div class="content" id = "reservations">
+        <h2>Table Reservation</h2>
+        <p style="text-align: center; color: #555; margin-bottom: 25px;">Secure your dining experience with us.</p>
+        
+        <!-- Success Message Display -->
+        {% if success_message %}
+            <div class="success-banner">
+                {{ success_message }}
+            </div>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+            
+            <div class="form-row">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" required>
+            </div>
+
+            <div class="form-row">
+                <label for="date">Reservation Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-row">
+                <label for="time">Reservation Time:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+
+            <div class="form-row">
+                <label for="number_of_guests">Number of Guests:</label>
+                <input type="number" id="number_of_guests" name="number_of_guests" min="1" max="10" value="2" required>
+            </div>
+
+            <div class="form-row">
+                <label for="special_requests">Special Requests (Optional):</label>
+                <textarea id="special_requests" name="special_requests" rows="3" placeholder="Allergies or seating preferences..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Confirm Booking</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Little Lemon Restaurant. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

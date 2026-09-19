@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Successful</title>
+</head>
+<body>
+<div style="max-width: 600px; margin: 40px auto; font-family: sans-serif; text-align: center;">
+    <h2 style="color: #495e57;">Order Placed Successfully!</h2>
+    <p>Thank you for your order with Little Lemon. Your food is being processed and will be on its way soon.</p>
+    
+    <div style="margin-top: 30px;">
+        <a href="{% url 'menu-items' %}" style="text-decoration: none; background: #495e57; color: white; padding: 10px 20px; border-radius: 4px; display: inline-block; margin-right: 10px;">Order More Items</a>
+        <a href="{% url 'index' %}" style="text-decoration: none; background: #e06d53; color: white; padding: 10px 20px; border-radius: 4px; display: inline-block;">Return Home</a>
+    </div>
+</div>
+</body>
+</html>
