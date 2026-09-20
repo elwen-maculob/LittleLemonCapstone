@@ -1,1 +1,36 @@
-[{"model": "restaurant.category", "pk": 1, "fields": {"slug": "starter", "title": "Starter"}}]
+[
+  {
+    "model": "restaurant.category",
+    "pk": 1,
+    "fields": {
+      "slug": "starters",
+      "title": "Starters"
+    }
+  },
+  {
+    "model": "restaurant.category",
+    "pk": 2,
+    "fields": {
+      "slug": "drinks",
+      "title": "Drinks"
+    }
+  },
+  {
+    "model": "restaurant.menu",
+    "pk": 1,
+    "fields": {
+      "title": "Greek Salad",
+      "price": "10.00",
+      "category": 1
+    }
+  },
+  {
+    "model": "restaurant.menu",
+    "pk": 2,
+    "fields": {
+      "title": "Lemonade",
+      "price": "3.50",
+      "category": 2
+    }
+  }
+]

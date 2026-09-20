@@ -18,16 +18,20 @@ from django.contrib import admin
 from django.urls import path, include
 from restaurant.views import IndexView, MenuListView
 from django.contrib.auth.views import LoginView, LogoutView
+from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('restaurant.urls')),
     path('auth/', include('djoser.urls')),
+    path('auth/token/login/', obtain_auth_token, name='token_login'),
+
     path('auth/', include('djoser.urls.authtoken')),
     path('api-auth/', include('rest_framework.urls')),
     path('api/users/', include('djoser.urls')),
     path('', include('djoser.urls.authtoken')),
-    path('login/', LoginView.as_view(template_name='restaurant/login.html', next_page='menu-items'), name='login'),
+    
+    path('login/', LoginView.as_view(template_name='LittleLemonAPI/login.html', next_page='menu-items'), name='login'),
     path('logout/', LogoutView.as_view(next_page='index'), name='logout'),
     path('', IndexView.as_view(), name='index'), 
     path('menu/', MenuListView.as_view(), name='menu-items'),
