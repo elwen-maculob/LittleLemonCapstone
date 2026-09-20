@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from restaurant.views import IndexView, MenuItemsListView
+from restaurant.views import IndexView, MenuListView
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
@@ -30,5 +30,5 @@ urlpatterns = [
     path('login/', LoginView.as_view(template_name='restaurant/login.html', next_page='menu-items'), name='login'),
     path('logout/', LogoutView.as_view(next_page='index'), name='logout'),
     path('', IndexView.as_view(), name='index'), 
-    path('menu/', MenuItemsListView.as_view(), name='menu-items'),
+    path('menu/', MenuListView.as_view(), name='menu-items'),
 ]

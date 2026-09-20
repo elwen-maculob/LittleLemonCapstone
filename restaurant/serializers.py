@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from decimal import Decimal
 from django.contrib.auth.models import User, Group
-from .models import Category, MenuItem, Cart, OrderItem, Order, Booking
+from .models import Category, Menu, Cart, OrderItem, Order, Booking
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -21,11 +21,11 @@ class BookingSerializer(serializers.ModelSerializer):
             'special_requests'
         ]
 
-class MenuItemSerializer(serializers.ModelSerializer):
+class MenuSerializer(serializers.ModelSerializer):
     category = CategorySerializer(read_only=True)
     category_id = serializers.IntegerField(write_only=True)
     class Meta:
-        model = MenuItem
+        model = Menu
         fields = [
             'id',
             'title',
@@ -36,7 +36,7 @@ class MenuItemSerializer(serializers.ModelSerializer):
         ]
 
 class CartSerializer(serializers.ModelSerializer):
-    menuitem = MenuItemSerializer(read_only=True)
+    menuitem = MenuSerializer(read_only=True)
     menuitem_id = serializers.IntegerField(write_only=True)
     class Meta:
         model = Cart
@@ -54,8 +54,8 @@ class CartSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         menuitem_id = validated_data.pop("menuitem_id")
         try:
-            menuitem = MenuItem.objects.get(id=menuitem_id)
-        except MenuItem.DoesNotExist:
+            menuitem = Menu.objects.get(id=menuitem_id)
+        except Menu.DoesNotExist:
             raise serializers.ValidationError(
                 {"menuitem_id" : "Invalid menu item ID."}
             )
@@ -78,7 +78,7 @@ class CartSerializer(serializers.ModelSerializer):
         return cart_item
 
 class OrderItemSerializer(serializers.ModelSerializer):
-    menuitem = MenuItemSerializer(read_only=True)
+    menuitem = MenuSerializer(read_only=True)
     class Meta:
         model = OrderItem
         fields = [

@@ -10,19 +10,18 @@ from django.views.generic import TemplateView, ListView, CreateView
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-from restaurant.models import MenuItem
 from django.views import View
 from django.shortcuts import render, get_object_or_404, redirect
 
-from .models import MenuItem, Order, Cart, OrderItem, Booking
-from .serializers import UserSerializer, MenuItemSerializer, CustomerOrderSerializer, CartSerializer, ManagerOrderSerializer, DeliveryOrderSerializer, OrderItemSerializer, BookingSerializer
+from .models import Menu, Order, Cart, OrderItem, Booking
+from .serializers import UserSerializer, MenuSerializer, CustomerOrderSerializer, CartSerializer, ManagerOrderSerializer, DeliveryOrderSerializer, OrderItemSerializer, BookingSerializer
 from .permissions import IsDeliveryCrew, IsManagerOrReadOnly, IsCustomer
 
 #1. displays menuitem even for all, GET only for C's
 #/api/menu-items/
-class MenuItemsView(generics.ListCreateAPIView):
-    queryset = MenuItem.objects.all()
-    serializer_class = MenuItemSerializer
+class MenuView(generics.ListCreateAPIView):
+    queryset = Menu.objects.all()
+    serializer_class = MenuSerializer
     permission_classes = [IsManagerOrReadOnly]
 
     filter_backends = [DjangoFilterBackend, OrderingFilter, SearchFilter]
@@ -251,14 +250,14 @@ class IndexView(TemplateView):
         context = {'success_message': 'Booking created successfully.'}
         return render(request, self.template_name, context)
 
-class MenuItemsListView(LoginRequiredMixin, ListView):
-    model = MenuItem
+class MenuListView(LoginRequiredMixin, ListView):
+    model = Menu
     template_name = 'LittleLemonAPI/menu_items.html'
     context_object_name = 'menu_items'
     login_url = '/login/'  
     def post(self, request, *args, **kwargs):
         menuitem_id = request.POST.get('menuitem_id')
-        menu_item  = get_object_or_404(MenuItem, id=menuitem_id)
+        menu_item  = get_object_or_404(Menu, id=menuitem_id)
         cart_item, created = Cart.objects.get_or_create(
             user=request.user if request.user.is_authenticated else None,
             menuitem=menu_item,

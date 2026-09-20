@@ -1,9 +1,9 @@
 from django.urls import path
 from . import views
-from .views import IndexView, MenuItemsListView, CartListView, ManagerGroupView, ManagerGroupDeleteView, DeliveryCrewGroupView, DeliveryCrewDeleteView, SignUpView, OrderSuccessView, CheckoutView
+from .views import IndexView, MenuListView, CartListView, ManagerGroupView, ManagerGroupDeleteView, DeliveryCrewGroupView, DeliveryCrewDeleteView, SignUpView, OrderSuccessView, CheckoutView
 
 urlpatterns = [
-    path('menu-items', views.MenuItemsView.as_view()),
+    path('menu-items', views.MenuView.as_view()),
     path('cart/menu-items', views.CartView.as_view()),
     path('orders', views.OrderView.as_view()),
     path('orders/<int:pk>', views.SingleOrderView.as_view()),
@@ -16,7 +16,7 @@ urlpatterns = [
     path('bookings', views.BookingView.as_view()),
     path('bookings/<int:pk>', views.SingleBookingView.as_view()),
     path('', views.IndexView.as_view(), name='index'),
-    path('menu/', views.MenuItemsListView.as_view(), name='menu-items'),
+    path('menu/', views.MenuListView.as_view(), name='menu-items'),
     path('signup/', views.SignUpView.as_view(), name='signup'),
     path('cart/', views.CartListView.as_view(), name='cart'),
     path('checkout/', views.CheckoutView.as_view(), name='checkout'),
