@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-kggwb_r-6z@a=-^xbq=v$r9#9uf^vr%@%rux@@2usb&a)onmge
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['littlelemon-restaurant-b435.onrender.com', 'localhost', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://littlelemon-restaurant-b435.onrender.com']
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
