@@ -1,0 +1,82 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-10-03T21:27:00.000Z",
+  "__export_source": "insomnia.desktop.app:v13.3.0",
+  "resources": [
+    {
+      "_id": "wrk_littlelemon",
+      "_type": "workspace",
+      "name": "Little Lemon API Workspace",
+      "description": "API collection for Little Lemon Capstone evaluation"
+    },
+    {
+      "_id": "env_base",
+      "_type": "environment",
+      "parentId": "wrk_littlelemon",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "https://littlelemon-restaurant-b435.onrender.com",
+        "token": "YOUR_AUTH_TOKEN_HERE"
+      }
+    },
+    {
+      "_id": "req_login",
+      "_type": "request",
+      "parentId": "wrk_littlelemon",
+      "name": "1. User Login (Obtain Token)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/auth/token/login/",
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"username\": \"admin\",\n  \"password\": \"admin1234\"\n}"
+      }
+    },
+    {
+      "_id": "req_get_menu",
+      "_type": "request",
+      "parentId": "wrk_littlelemon",
+      "name": "2. Get Menu Items",
+      "method": "GET",
+      "url": "{{ _.base_url }}/menu-items/",
+      "headers": []
+    },
+    {
+      "_id": "req_get_orders",
+      "_type": "request",
+      "parentId": "wrk_littlelemon",
+      "name": "3. Get Orders",
+      "method": "GET",
+      "url": "{{ _.base_url }}/orders/",
+      "headers": [{ "name": "Authorization", "value": "Token {{ _.token }}" }]
+    },
+    {
+      "_id": "req_get_cart",
+      "_type": "request",
+      "parentId": "wrk_littlelemon",
+      "name": "4. Get Cart Items",
+      "method": "GET",
+      "url": "{{ _.base_url }}/cart/menu-items/",
+      "headers": [{ "name": "Authorization", "value": "Token {{ _.token }}" }]
+    },
+    {
+      "_id": "req_get_bookings",
+      "_type": "request",
+      "parentId": "wrk_littlelemon",
+      "name": "5. Get Bookings",
+      "method": "GET",
+      "url": "{{ _.base_url }}/bookings/",
+      "headers": [{ "name": "Authorization", "value": "Token {{ _.token }}" }]
+    },
+    {
+      "_id": "req_managers",
+      "_type": "request",
+      "parentId": "wrk_littlelemon",
+      "name": "6. Get Managers Group",
+      "method": "GET",
+      "url": "{{ _.base_url }}/groups/manager/users/",
+      "headers": [{ "name": "Authorization", "value": "Token {{ _.token }}" }]
+    }
+  ]
+}
