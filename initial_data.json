@@ -102,5 +102,59 @@
     "featured": false,
     "category": 3
   }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$A9lPALxguylkgc7So7KfX0$+I3/BzX6vL0ET4KkiSimYcFUC4bluvy0ne7YzKj5mvM=",
+    "last_login": "2026-10-03T12:03:33.910Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@ll.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-10-03T12:03:01.414Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$tiK1HYOrEspsgs05q2m54Z$R9JVGm7vLXJeAOU0pr/CFQDJYO0mZx0V9bTJg+WeSQE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "customer1",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-03T12:12:15.964Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$IjxkpS477ZbvSEajvHHgeQ$a98AEnIgC7WfbyAtxF9gjEp8lOYEMrXtphxieKb79UY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "delivery_crew1",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-03T12:12:40.634Z",
+    "groups": [],
+    "user_permissions": []
+  }
 }
 ]
