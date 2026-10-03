@@ -250,12 +250,13 @@ class IndexView(TemplateView):
         context = {'success_message': 'Booking created successfully.'}
         return render(request, self.template_name, context)
 
-class MenuListView(LoginRequiredMixin, ListView):
+class MenuListView(ListView):
     model = Menu
     template_name = 'LittleLemonAPI/menu_items.html'
     context_object_name = 'menu_items'
-    login_url = '/login/'  
     def post(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('login')
         menuitem_id = request.POST.get('menuitem_id')
         menu_item  = get_object_or_404(Menu, id=menuitem_id)
         cart_item, created = Cart.objects.get_or_create(
