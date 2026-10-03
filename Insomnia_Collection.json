@@ -16,7 +16,7 @@
       "parentId": "wrk_littlelemon",
       "name": "Base Environment",
       "data": {
-        "base_url": "https://littlelemon-restaurant-b435.onrender.com",
+        "base_url": "https://littlelemon-restaurant-b435.onrender.com/api",
         "token": "YOUR_AUTH_TOKEN_HERE"
       }
     },
@@ -26,7 +26,7 @@
       "parentId": "wrk_littlelemon",
       "name": "1. User Login (Obtain Token)",
       "method": "POST",
-      "url": "{{ _.base_url }}/auth/token/login/",
+      "url": "https://littlelemon-restaurant-b435.onrender.com/auth/token/login/",
       "headers": [{ "name": "Content-Type", "value": "application/json" }],
       "body": {
         "mimeType": "application/json",
