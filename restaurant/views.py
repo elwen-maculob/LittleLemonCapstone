@@ -22,7 +22,7 @@ from .permissions import IsDeliveryCrew, IsManagerOrReadOnly, IsCustomer
 class MenuView(generics.ListCreateAPIView):
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
-    permission_classes = [IsManagerOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
     filter_backends = [DjangoFilterBackend, OrderingFilter, SearchFilter]
     filterset_fields = ['category']
