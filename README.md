@@ -1,51 +1,30 @@
-# Little Lemon Restaurant API Project
-Capstone project for the Back-End Developer Professional Certificate, featuring a Django REST API with Role-Based Access Control (RBAC), database synchronization, and data portability.
+# Little Lemon Restaurant API
 
-## Project Setup & Installation
+A robust RESTful API built with **Django** and **Django REST Framework (DRF)** for restaurant reservations, menu item management, and order processing. Built with Role-Based Access Control (RBAC), token authentication, and data serialization.
 
-1. Clone the Repository:
-   ```bash
-   git clone https://github.com/elwen-maculob/LittleLemonCapstone.git
-   cd LittleLemonCapstone
+---
 
-```
-2. Create and activate a virtual environment:
+## 🚀 Key Features
+
+- **User Authentication:** Token-based security using Djoser and DRF authentication.
+- **Role-Based Access Control (RBAC):** Group permissions separating `Manager`, `Delivery Crew`, and `Customer` access levels.
+- **Menu & Order Management:** Full CRUD operations for menu items, category filtering, search, and ordering pipeline.
+- **Table Booking API:** Reservation management with date/time slot conflict validation.
+
+---
+
+## 🛠️ Tech Stack & Tools
+
+- **Backend:** Python, Django, Django REST Framework
+- **Database:** SQLite / MySQL
+- **Authentication:** Token / Djoser
+- **Testing & API Documentation:** Postman, Insomnia, Pytest
+
+---
+
+## ⚙️ Quick Start & Installation
+
+### 1. Clone the Repository
 ```bash
-python3 -m venv env
-source env/bin/activate
-
-```
-3. Install dependencies:
-```bash
-pip install -r requirements.txt
-
-```
-## Database & Migrations
-
-1. Run migrations to set up the database schema:
-```bash
-python3 manage.py migrate
-
-```
-2. Load the initial data fixture (includes categories, menu items, and roles):
-```bash
-python3 manage.py loaddata initial_data.json
-
-```
-## Running the Server & Tests
-
-1. Start the development server:
-```bash
-python3 manage.py runserver
-
-```
-2. Run the test suite to verify functionality:
-```bash
-python3 manage.py test
-
-```
-## Role-Based Access Control (RBAC)
-
-* Managers: Full administrative control over menu items, orders, and user group management.
-* Delivery Crew: Access to view and update delivery status on assigned order items.
-* Customers: Access to view menu items, manage cart, and place orders.
+git clone https://github.com/elwen-maculob/LittleLemonCapstone.git
+cd LittleLemonCapstone
