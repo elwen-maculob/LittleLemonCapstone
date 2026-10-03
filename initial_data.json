@@ -123,38 +123,86 @@
 },
 {
   "model": "auth.user",
-  "pk": 2,
+  "pk": 4,
   "fields": {
-    "password": "pbkdf2_sha256$1500000$tiK1HYOrEspsgs05q2m54Z$R9JVGm7vLXJeAOU0pr/CFQDJYO0mZx0V9bTJg+WeSQE=",
+    "password": "pbkdf2_sha256$1500000$ByWQTpqboFbQCJQDh79uw0$Q2yRF7lT9IGx3Jf2IUy91q/7zNlD0eQHoRu6UbvboaA=",
     "last_login": null,
     "is_superuser": false,
-    "username": "customer1",
+    "username": "manager",
     "first_name": "",
     "last_name": "",
     "email": "",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2026-10-03T12:12:15.964Z",
-    "groups": [],
+    "date_joined": "2026-10-03T12:45:06Z",
+    "groups": [
+      1
+    ],
     "user_permissions": []
   }
 },
 {
   "model": "auth.user",
-  "pk": 3,
+  "pk": 5,
   "fields": {
-    "password": "pbkdf2_sha256$1500000$IjxkpS477ZbvSEajvHHgeQ$a98AEnIgC7WfbyAtxF9gjEp8lOYEMrXtphxieKb79UY=",
+    "password": "pbkdf2_sha256$1500000$FMKYS7oHCB1wGm7CmHH7FO$5AJdJwHlAfkx7bd50x18UZZ6x+vWgVFuqgo//FMKDaU=",
     "last_login": null,
     "is_superuser": false,
-    "username": "delivery_crew1",
+    "username": "customer",
     "first_name": "",
     "last_name": "",
     "email": "",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2026-10-03T12:12:40.634Z",
-    "groups": [],
+    "date_joined": "2026-10-03T12:46:00Z",
+    "groups": [
+      2
+    ],
     "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$BiTUFak7hHuN6CyA371u2G$x3vKmE3BSIR3+EU9UqB0LrPOis9JISZ5fq9K3XP7sA0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "delivery_crew",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-03T12:46:23Z",
+    "groups": [
+      3
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Manager",
+    "permissions": []
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Customer",
+    "permissions": []
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 3,
+  "fields": {
+    "name": "Delivery crew",
+    "permissions": []
   }
 }
 ]

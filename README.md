@@ -28,3 +28,19 @@ A robust RESTful API built with **Django** and **Django REST Framework (DRF)** f
 ```bash
 git clone https://github.com/elwen-maculob/LittleLemonCapstone.git
 cd LittleLemonCapstone
+
+---
+## Test Credentials & Roles
+
+- **Admin / Superuser:**
+  - Username: `admin`
+  - Password: `admin1234`
+- **Manager:**
+  - Username: `manager`
+  - Password: `manpass1234`
+- **Delivery Crew:**
+  - Username: `delivery_crew`
+  - Password: `crewpass1234`
+- **Customer:**
+  - Username: `customer`
+  - Password: `cuspass1234`
