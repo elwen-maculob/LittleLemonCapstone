@@ -1,36 +1,106 @@
 [
-  {
-    "model": "restaurant.category",
-    "pk": 1,
-    "fields": {
-      "slug": "starters",
-      "title": "Starters"
-    }
-  },
-  {
-    "model": "restaurant.category",
-    "pk": 2,
-    "fields": {
-      "slug": "drinks",
-      "title": "Drinks"
-    }
-  },
-  {
-    "model": "restaurant.menu",
-    "pk": 1,
-    "fields": {
-      "title": "Greek Salad",
-      "price": "10.00",
-      "category": 1
-    }
-  },
-  {
-    "model": "restaurant.menu",
-    "pk": 2,
-    "fields": {
-      "title": "Lemonade",
-      "price": "3.50",
-      "category": 2
-    }
+{
+  "model": "restaurant.category",
+  "pk": 1,
+  "fields": {
+    "slug": "main-dish",
+    "title": "Main Dish"
   }
+},
+{
+  "model": "restaurant.category",
+  "pk": 2,
+  "fields": {
+    "slug": "drinks",
+    "title": "Drinks"
+  }
+},
+{
+  "model": "restaurant.category",
+  "pk": 3,
+  "fields": {
+    "slug": "desserts",
+    "title": "Desserts"
+  }
+},
+{
+  "model": "restaurant.menu",
+  "pk": 1,
+  "fields": {
+    "title": "Beef Steak",
+    "price": "55.00",
+    "featured": true,
+    "category": 1
+  }
+},
+{
+  "model": "restaurant.menu",
+  "pk": 2,
+  "fields": {
+    "title": "Chicken Cordon Bleu",
+    "price": "45.00",
+    "featured": false,
+    "category": 1
+  }
+},
+{
+  "model": "restaurant.menu",
+  "pk": 3,
+  "fields": {
+    "title": "Grilled Tuna",
+    "price": "70.00",
+    "featured": true,
+    "category": 1
+  }
+},
+{
+  "model": "restaurant.menu",
+  "pk": 4,
+  "fields": {
+    "title": "Ice Tea",
+    "price": "2.50",
+    "featured": false,
+    "category": 2
+  }
+},
+{
+  "model": "restaurant.menu",
+  "pk": 5,
+  "fields": {
+    "title": "Lemonade",
+    "price": "3.50",
+    "featured": true,
+    "category": 2
+  }
+},
+{
+  "model": "restaurant.menu",
+  "pk": 6,
+  "fields": {
+    "title": "Cold Coffee Latte",
+    "price": "2.35",
+    "featured": false,
+    "category": 2
+  }
+},
+{
+  "model": "restaurant.menu",
+  "pk": 7,
+  "fields": {
+    "title": "Red Velvet Cake",
+    "price": "35.50",
+    "featured": true,
+    "category": 3
+  }
+},
+{
+  "model": "restaurant.menu",
+  "pk": 8,
+  "fields": {
+    "title": "Choco Lava Cake",
+    "price": "30.00",
+    "featured": false,
+    "category": 3
+  }
+}
 ]
